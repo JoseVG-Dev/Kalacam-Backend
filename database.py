@@ -14,7 +14,7 @@ HOST = os.getenv("DB_HOST")  # Este debería terminar en `pooler.supabase.com`
 PORT = os.getenv("DB_PORT", 6543)  # 6543 es el puerto del transaction pooler
 DBNAME = os.getenv("DB_NAME")
 
-DATABASE_URL = f"postgresql+psycopg2://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}?sslmode=require"
+DATABASE_URL = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}"
 
 # 🚨 Importante: usar NullPool con transaction pooler
 engine = create_engine(DATABASE_URL, poolclass=NullPool)
